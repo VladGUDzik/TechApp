@@ -2,6 +2,7 @@ package entities
 
 import android.text.TextUtils
 import android.util.Patterns;
+import java.util.regex.Pattern
 
 class Admin(
     private var login: String,
@@ -49,6 +50,17 @@ class Admin(
     }
 
     private fun isPasswordLengthValid(): Boolean {
-        return getPassword().length > 6
+        val passwordPattern = "^" +
+                "(?=.*[0-9])" +
+                "(?=.*[a-z])" +
+                "(?=.*[A-Z])" +
+                "(?=.*[@#$%^&+=!])" +
+                "(?=\\S+$)" +
+                ".{8,}" +
+                "$"
+        val pattern = Pattern.compile(passwordPattern)
+        val matcher = pattern.matcher(password)
+
+        return matcher.matches()
     }
 }
