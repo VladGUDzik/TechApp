@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingBottom="20dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp"
+    android:background="#FAB222">
+
+    <ImageView
+        android:id="@+id/item_in_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="14dp"
+        android:scaleType="centerCrop"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/item_in_title"
+        android:layout_width="match_parent"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/item_in_desc"
+        android:layout_width="match_parent"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:textSize="17sp"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/item_in_owner"
+        android:layout_width="match_parent"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:textSize="20sp"
+        android:gravity="end"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/item_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#733912"
+        android:paddingVertical="10dp"
+        android:text="Посмотреть" />
+</LinearLayout>
