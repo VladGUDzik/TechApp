@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import entities.Admin
-import managers.DbHelper
+import managers.DbAdminHelper
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 -2 ->  Toast.makeText(this, "Не валидная почта", Toast.LENGTH_SHORT).show()
                 -3 -> Toast.makeText(this, "Не валидная пароль", Toast.LENGTH_SHORT).show()
                 1 ->{
-                    val db = DbHelper(this, null)
+                    val db = DbAdminHelper(this, null)
                     db.addAdmin(admin)
                     Toast.makeText(this, "Админ $login добавлен", Toast.LENGTH_SHORT).show()
                     enterLogine.text.clear()

@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import managers.DbHelper
+import managers.DbAdminHelper
 
 class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class AuthActivity : AppCompatActivity() {
             if (login == "" || pass == "") {
                 Toast.makeText(this, "Не все поля заполнены", Toast.LENGTH_SHORT).show()
             } else {
-                val db = DbHelper(this, null)
+                val db = DbAdminHelper(this, null)
                 val isAuth = db.getAdmin(login, pass)
 
                 if (isAuth) {
