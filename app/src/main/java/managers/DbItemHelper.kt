@@ -32,11 +32,28 @@ class DbItemHelper(val context: Context?, val factory: SQLiteDatabase.CursorFact
         db.close()
     }
 
-    fun deleteItem(title: String, image: String, description: String, owner: String) {
+    fun deleteItem(title: String, description: String, owner: String) {
         val db = this.writableDatabase
         db.delete(
-            "items", "title=$title AND image=$image AND description=$description AND owner=$owner",
-            arrayOf(title, image, description, owner)
+            "items", "title=$title AND description=$description AND owner=$owner",
+            arrayOf(title, description, owner)
+        )
+        db.close()
+    }
+
+    fun editItem(originalTitle: String, title: String, description: String, owner: String) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+
+        values.put("title", title)
+        values.put("description", description)
+        values.put("owner", owner)
+
+        db.update(
+            "items",
+            values,
+            "title=$title AND description=$description AND owner=$owner",
+            arrayOf(originalTitle)
         )
         db.close()
     }

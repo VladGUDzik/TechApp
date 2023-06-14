@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#e2a600"
-    tools:context=".ItemActivity">
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/item_in_title_one"
@@ -39,31 +36,12 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/item_button_delete"
+        android:id="@+id/item_button_add"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#733912"
         android:paddingVertical="10dp"
-        android:text="Удалить" />
-
-    <Button
-        android:id="@+id/item_button_edit"
-        android:layout_width="205dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#733912"
-        android:paddingVertical="10dp"
-        android:text="Редактировать" />
-
-    <Button
-        android:id="@+id/item_button_save"
-        android:layout_width="205dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:backgroundTint="#733912"
-        android:paddingVertical="10dp"
-        android:text="Сохранить" />
-
+        android:text="Добавить" />
 
 </LinearLayout>

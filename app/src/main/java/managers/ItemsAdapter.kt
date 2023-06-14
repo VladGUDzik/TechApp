@@ -52,6 +52,7 @@ class ItemsAdapter(var items: List<Item>, var context: Context) :
             intent.putExtra("itemTitle", items[position].getTitle())
             intent.putExtra("itemOwner", items[position].getOwner())
             intent.putExtra("itemDescription", items[position].getDesc())
+            intent.putExtra("itemImage",items[position].getImage())
 
             context.startActivity(intent)
         }
