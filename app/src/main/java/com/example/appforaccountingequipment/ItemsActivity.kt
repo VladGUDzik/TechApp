@@ -1,5 +1,6 @@
 package com.example.appforaccountingequipment
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -14,12 +15,11 @@ class ItemsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
 
-        val itemList: RecyclerView = findViewById(R.id.item_list)
-        val buttonAdd:Button = findViewById(R.id.item_button_add)
-        val items = arrayListOf<Item>()
-
+        val itemList: RecyclerView? = findViewById(R.id.item_list)
+        val buttonAdd: Button? = findViewById(R.id.item_button_add)
         val db = DbItemHelper(this, null)
 
+        val items: ArrayList<Item> = (itemList?.adapter as ItemsAdapter).items as ArrayList<Item>
         items.add(Item(1, "Ноутбук", "nt", "б/у", "Стас"))
         items.add(Item(2, "ПК", "pc", "б/у", "Влад"))
 
@@ -27,11 +27,18 @@ class ItemsActivity : AppCompatActivity() {
             db.addItem(item)
         }
 
-        itemList.layoutManager = LinearLayoutManager(this)
-        itemList.adapter = ItemsAdapter(items, this)
+        itemList?.let {
 
-        buttonAdd.setOnClickListener{
+            itemList.layoutManager = LinearLayoutManager(this)
+            itemList.adapter = ItemsAdapter(items, this)
+        }
 
+
+        buttonAdd?.setOnClickListener {
+            val intent = Intent(this, ItemAddActivity::class.java)
+
+            intent.putParcelableArrayListExtra("items", ArrayList(items))
+            startActivity(intent)
         }
     }
 }
