@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppForAccountingEquipment"
         tools:targetApi="31" >
         <activity
-            android:name=".ItemActivity"
+            android:name=".EditItemActivity"
             android:exported="false" />
         <activity
             android:name=".ItemsActivity"

@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appforaccountingequipment.ItemActivity
+import com.example.appforaccountingequipment.EditItemActivity
 import com.example.appforaccountingequipment.R
 import entities.Item
 
@@ -47,7 +47,7 @@ class ItemsAdapter(var items: List<Item>, var context: Context) :
         holder.image.setImageResource(imageId)
 
         holder.btn.setOnClickListener{
-            val intent = Intent(context, ItemActivity::class.java)
+            val intent = Intent(context, EditItemActivity::class.java)
 
             intent.putExtra("itemTitle", items[position].getTitle())
             intent.putExtra("itemOwner", items[position].getOwner())

@@ -6,8 +6,9 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import managers.DbItemHelper
+import java.util.UUID
 
-class ItemActivity : AppCompatActivity() {
+class EditItemActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +33,7 @@ class ItemActivity : AppCompatActivity() {
         val intent = Intent(this,ItemsActivity::class.java)
 
         buttonDelete.setOnClickListener {
-            db.deleteItem(title.toString(), desc.toString(), owner.toString())
+            db.deleteItem(title.hint.toString(), desc.hint.toString(), owner.hint.toString())
             startActivity(intent)
         }
 
@@ -40,13 +41,14 @@ class ItemActivity : AppCompatActivity() {
             title.isEnabled = true
             desc.isEnabled = true
             owner.isEnabled = true
-            //title.requestFocus()
+            title.requestFocus()
         }
 
         buttonSave.setOnClickListener {
             val enterTitle = title.text.toString().trim()
             val enterDesc = desc.text.toString().trim()
             val enterOwner = owner.text.toString().trim()
+
             db.editItem(
                 intent.getStringExtra("itemTitle").toString(), enterTitle,
                 enterDesc, enterOwner

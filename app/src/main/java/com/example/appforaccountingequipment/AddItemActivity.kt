@@ -7,9 +7,9 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import entities.Item
 import managers.DbItemHelper
-import managers.ItemsAdapter
+import java.util.UUID
 
-class ItemAddActivity : AppCompatActivity() {
+class AddItemActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_item)
@@ -19,7 +19,6 @@ class ItemAddActivity : AppCompatActivity() {
         val owner: EditText = findViewById(R.id.item_in_owner)
         val buttonAdd: Button = findViewById(R.id.item_button_add)
         val db = DbItemHelper(this, null)
-        val items = intent.getParcelableArrayListExtra<Item>("items")
 
         title.isEnabled = false
         desc.isEnabled = false
@@ -32,11 +31,13 @@ class ItemAddActivity : AppCompatActivity() {
             val enterDesc = desc.text.toString().trim()
             val enterOwner = owner.text.toString().trim()
 
-            items?.let { it1 -> Item(it1.size,enterTitle,"pc",enterDesc,enterOwner) }
-                ?.let { it2 -> db.addItem(it2) }
+            var item = Item(0,enterTitle, R.drawable.nt.toString(),enterDesc,enterOwner)
+
+            db.let {
+                it.addItem(item)
+            }
 
             startActivity(intent)
         }
-
     }
 }

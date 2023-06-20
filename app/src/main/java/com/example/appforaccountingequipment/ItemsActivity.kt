@@ -19,7 +19,7 @@ class ItemsActivity : AppCompatActivity() {
         val buttonAdd: Button? = findViewById(R.id.item_button_add)
         val db = DbItemHelper(this, null)
 
-        val items: ArrayList<Item> = (itemList?.adapter as ItemsAdapter).items as ArrayList<Item>
+        val items= arrayListOf<Item>()
         items.add(Item(1, "Ноутбук", "nt", "б/у", "Стас"))
         items.add(Item(2, "ПК", "pc", "б/у", "Влад"))
 
@@ -28,16 +28,13 @@ class ItemsActivity : AppCompatActivity() {
         }
 
         itemList?.let {
-
             itemList.layoutManager = LinearLayoutManager(this)
             itemList.adapter = ItemsAdapter(items, this)
         }
 
-
         buttonAdd?.setOnClickListener {
-            val intent = Intent(this, ItemAddActivity::class.java)
+            val intent = Intent(this, AddItemActivity::class.java)
 
-            intent.putParcelableArrayListExtra("items", ArrayList(items))
             startActivity(intent)
         }
     }

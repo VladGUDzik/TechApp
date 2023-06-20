@@ -4,45 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#e2a600"
+    android:orientation="vertical"
     tools:context=".ItemsActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Техника"
+    <EditText
+        android:id="@+id/textSearch"
+        android:layout_width="155dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:hint="Поиск ..."
+        android:inputType="text"
+        android:maxLines="1"
+        android:minWidth="48dp"
         android:textColor="#fdfdfd"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="36dp" />
 
     <Button
         android:id="@+id/item_button_add"
         android:layout_width="126dp"
         android:layout_height="51dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="55dp"
+        android:backgroundTint="#733912"
         android:text="Добавить"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/item_list"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_list"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toEndOf="@+id/textSearch"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_list"
-        android:layout_width="354dp"
-        android:layout_height="568dp"
+        android:layout_width="368dp"
+        android:layout_height="543dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textSearch"
+        app:layout_constraintVertical_bias="0.728"
         tools:ignore="MissingConstraints" />
 
 
