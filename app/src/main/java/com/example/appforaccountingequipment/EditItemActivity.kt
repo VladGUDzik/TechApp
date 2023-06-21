@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import managers.DbItemHelper
-import java.util.UUID
 
 class EditItemActivity : AppCompatActivity() {
 
@@ -29,6 +28,7 @@ class EditItemActivity : AppCompatActivity() {
         title.isEnabled = false
         desc.isEnabled = false
         owner.isEnabled = false
+        buttonSave.isEnabled = false
 
         val intent = Intent(this,ItemsActivity::class.java)
 
@@ -41,6 +41,7 @@ class EditItemActivity : AppCompatActivity() {
             title.isEnabled = true
             desc.isEnabled = true
             owner.isEnabled = true
+            buttonSave.isEnabled = true
             title.requestFocus()
         }
 

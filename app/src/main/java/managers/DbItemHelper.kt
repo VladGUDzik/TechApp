@@ -1,12 +1,13 @@
 package managers
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import entities.Item
 
-class DbItemHelper(val context: Context?, val factory: SQLiteDatabase.CursorFactory?) :
+class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "app_item", factory, 1) {
     override fun onCreate(db: SQLiteDatabase?) {
         val query =
@@ -35,8 +36,8 @@ class DbItemHelper(val context: Context?, val factory: SQLiteDatabase.CursorFact
     fun deleteItem(title: String, description: String, owner: String) {
         val db = this.writableDatabase
         db.delete(
-            "items", "title=$title AND description=$description AND owner=$owner",
-            arrayOf(title, description, owner)
+            "items", "title='$title' AND description='$description' AND owner='$owner'",
+           null
         )
         db.close()
     }
@@ -52,20 +53,46 @@ class DbItemHelper(val context: Context?, val factory: SQLiteDatabase.CursorFact
         db.update(
             "items",
             values,
-            "title=$title AND description=$description AND owner=$owner",
+            "title='$title' AND description='$description' AND owner='$owner'",
             arrayOf(originalTitle)
         )
         db.close()
     }
 
-    fun getItem(title: String, image: String, description: String, owner: String): Boolean {
+    fun getItem(title: String): Boolean {
         val db = this.readableDatabase
 
         val result = db.rawQuery(
-            "SELECT * FROM items WHERE title = '$title' AND image = '$image' AND description = '$description' AND owner = '$owner'",
+            "SELECT * FROM items WHERE title = '$title'",
             null
         )
         return result.moveToFirst()
+    }
+
+    @SuppressLint("Range")
+    fun getAllItems(): ArrayList<Item> {
+        val itemList = ArrayList<Item>()
+        val selectQuery = "SELECT * FROM items"
+
+        val db = this.readableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val id = cursor.getInt(cursor.getColumnIndex("id"))
+                val title = cursor.getString(cursor.getColumnIndex("title"))
+                val image = cursor.getString(cursor.getColumnIndex("image"))
+                val description = cursor.getString(cursor.getColumnIndex("description"))
+                val owner = cursor.getString(cursor.getColumnIndex("owner"))
+
+                val item = Item(id, title, image, description, owner)
+                itemList.add(item)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+
+        return itemList
     }
 
 }
