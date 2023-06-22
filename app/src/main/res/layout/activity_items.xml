@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e2a600"
+    android:background="#D8D8D8"
     android:orientation="vertical"
     tools:context=".ItemsActivity">
 
@@ -15,6 +15,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        style="@style/SearchEditText"
         android:hint="Поиск ..."
         android:inputType="text"
         android:maxLines="1"
@@ -31,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="#733912"
+        android:backgroundTint="#D76860"
         android:text="Добавить"
         app:layout_constraintBaseline_toBaselineOf="@+id/textSearch"
         app:layout_constraintEnd_toEndOf="parent"

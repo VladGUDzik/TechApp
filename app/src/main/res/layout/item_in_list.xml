@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="20dp"
-    android:background="#FAB222">
+    android:background="#D5D3D2">
 
     <ImageView
         android:id="@+id/item_in_image"
@@ -22,33 +22,48 @@
         android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="#FFFFFF"
         android:textSize="30sp"
-        android:text="TextView" />
+        android:text="TextView"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"/>
 
     <TextView
         android:id="@+id/item_in_desc"
         android:layout_width="match_parent"
         android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
+        android:backgroundTint="#FFFFFF"
         android:textSize="17sp"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"/>
 
     <TextView
         android:id="@+id/item_in_owner"
         android:layout_width="match_parent"
         android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
+        android:backgroundTint="#FFFFFF"
         android:textSize="20sp"
         android:gravity="end"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     <Button
         android:id="@+id/item_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="#733912"
+        android:backgroundTint="#D76860"
         android:paddingVertical="10dp"
         android:text="Посмотреть" />
 </LinearLayout>

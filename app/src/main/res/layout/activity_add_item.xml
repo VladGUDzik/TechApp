@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e2a600"
+    android:background="#D5D3D2"
     android:orientation="vertical">
 
     <EditText
@@ -12,7 +12,11 @@
         android:hint="Заголовок"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"/>
 
     <EditText
         android:id="@+id/item_in_desc"
@@ -22,7 +26,11 @@
         android:minHeight="48dp"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="1"/>
 
     <EditText
         android:id="@+id/item_in_owner"
@@ -33,14 +41,18 @@
         android:minHeight="48dp"
         android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     <Button
         android:id="@+id/item_button_add"
         android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#733912"
+        android:backgroundTint="#D76860"
         android:paddingVertical="10dp"
         android:text="Добавить" />
 

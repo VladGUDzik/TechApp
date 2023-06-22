@@ -7,6 +7,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="104dp"
+        android:layout_height="85dp"
+
+        android:background="#8AFEFEFE"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        android:src="@drawable/intersect"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.848"
+        tools:ignore="MissingConstraints" />
+
     <TextView
         android:id="@+id/label_reg"
         android:layout_width="wrap_content"
@@ -18,27 +36,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
-
-    <EditText
-        android:id="@+id/enter_login_reg"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="Логин"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_reg" />
+        app:layout_constraintVertical_bias="0.157" />
 
     <EditText
         android:id="@+id/enter_password_reg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="112dp"
+        android:background="@drawable/edittext_bg"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="text"
@@ -50,24 +55,44 @@
         tools:ignore="TextFields" />
 
     <EditText
+        android:id="@+id/enter_login_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/edittext_bg"
+        android:ems="10"
+        android:hint="Логин"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_reg" />
+
+    <EditText
         android:id="@+id/enter_mail_reg"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:background="@drawable/edittext_bg"
         android:ems="10"
         android:hint="Почта"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/enter_password_reg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enter_login_reg" />
+        app:layout_constraintTop_toBottomOf="@+id/enter_login_reg"
+        app:layout_constraintVertical_bias="0.58" />
 
     <Button
         android:id="@+id/enter_button_reg"
         android:layout_width="194dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
         android:text="Зарегистрироваться"
+        android:backgroundTint="#D76860"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enter_password_reg" />
 
