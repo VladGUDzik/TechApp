@@ -30,7 +30,7 @@ class EditItemActivity : AppCompatActivity() {
         owner.isEnabled = false
         buttonSave.isEnabled = false
 
-        val intent = Intent(this,ItemsActivity::class.java)
+
 
         buttonDelete.setOnClickListener {
             db.deleteItem(title.hint.toString(), desc.hint.toString(), owner.hint.toString())
@@ -54,6 +54,8 @@ class EditItemActivity : AppCompatActivity() {
                 intent.getStringExtra("itemTitle").toString(), enterTitle,
                 enterDesc, enterOwner
             )
+
+            val intent = Intent(this, ItemsActivity::class.java)
             startActivity(intent)
         }
     }

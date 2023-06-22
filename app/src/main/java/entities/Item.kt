@@ -5,14 +5,14 @@ import android.os.Parcelable
 import android.text.TextUtils
 
 class Item(
-    val id: Int,
+    val id: String,
     private val title: String,
     private val image: String,
     private val desc: String,
     private val owner: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readInt(),
+        parcel.readString() as String,
         parcel.readString() as String,
         parcel.readString() as String,
         parcel.readString() as String,
@@ -48,7 +48,7 @@ class Item(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
+        parcel.writeString(id)
         parcel.writeString(title)
         parcel.writeString(image)
         parcel.writeString(desc)

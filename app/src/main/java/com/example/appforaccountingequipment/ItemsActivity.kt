@@ -47,7 +47,6 @@ class ItemsActivity : AppCompatActivity() {
 
         buttonAdd?.setOnClickListener {
             val intent = Intent(this, AddItemActivity::class.java)
-
             startActivity(intent)
         }
     }

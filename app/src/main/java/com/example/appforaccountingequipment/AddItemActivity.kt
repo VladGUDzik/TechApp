@@ -20,23 +20,17 @@ class AddItemActivity : AppCompatActivity() {
         val buttonAdd: Button = findViewById(R.id.item_button_add)
         val db = DbItemHelper(this, null)
 
-        title.isEnabled = false
-        desc.isEnabled = false
-        owner.isEnabled = false
-
-        val intent = Intent(this,ItemsActivity::class.java)
-
         buttonAdd.setOnClickListener {
             val enterTitle = title.text.toString().trim()
             val enterDesc = desc.text.toString().trim()
             val enterOwner = owner.text.toString().trim()
 
-            var item = Item(0,enterTitle, R.drawable.nt.toString(),enterDesc,enterOwner)
+            val uuid = UUID.randomUUID()
+            val item = Item(uuid.toString(),enterTitle, R.drawable.nt.toString(),enterDesc,enterOwner)
 
-            db.let {
-                it.addItem(item)
-            }
+            db.addItem(item)
 
+            val intent = Intent(this, ItemsActivity::class.java)
             startActivity(intent)
         }
     }

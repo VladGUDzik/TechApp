@@ -79,7 +79,7 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
 
         if (cursor.moveToFirst()) {
             do {
-                val id = cursor.getInt(cursor.getColumnIndex("id"))
+                val id = cursor.getString(cursor.getColumnIndex("id"))
                 val title = cursor.getString(cursor.getColumnIndex("title"))
                 val image = cursor.getString(cursor.getColumnIndex("image"))
                 val description = cursor.getString(cursor.getColumnIndex("description"))

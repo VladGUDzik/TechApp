@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
                     enterLogine.text.clear()
                     enterEmail.text.clear()
                     enterPassword.text.clear()
+                    val intent = Intent(this,ItemsActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }
