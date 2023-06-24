@@ -9,20 +9,19 @@
 
     <ImageView
         android:id="@+id/background_image"
-        android:layout_width="104dp"
-        android:layout_height="85dp"
+        android:layout_width="119dp"
+        android:layout_height="101dp"
 
         android:background="#8AFEFEFE"
         android:scrollbarAlwaysDrawHorizontalTrack="false"
         android:scrollbarAlwaysDrawVerticalTrack="false"
         android:src="@drawable/intersect"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/link_to_auth"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.848"
+        app:layout_constraintTop_toBottomOf="@+id/enter_button_reg"
+        app:layout_constraintVertical_bias="0.49"
         tools:ignore="MissingConstraints" />
 
     <TextView

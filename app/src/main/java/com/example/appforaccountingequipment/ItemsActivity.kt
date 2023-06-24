@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import entities.Item
 import managers.DbItemHelper
 import managers.ItemsAdapter
+import java.util.UUID
 
 class ItemsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,31 @@ class ItemsActivity : AppCompatActivity() {
         val db = DbItemHelper(this, null)
 
         val items = db.getAllItems()
+        val uuid = UUID.randomUUID()
+        var item = Item(
+            uuid.toString(),
+            "ПК",
+            "pc",
+            "ПЭВМ (персональная электронно-вычислительная машина) — однопользовательская (предназначенная для использования одним пользователем) ЭВМ, имеющая эксплуатационные характеристики бытового прибора и универсальные функциональные возможности",
+            "Влад"
+        )
+        items.add(item)
+        item = Item(
+            uuid.toString(),
+            "Ноутбук",
+            "nt",
+            "переносной компьютер, в корпусе которого объединены типичные компоненты персонального компьютера, включая дисплей, клавиатуру и устройство указания (обычно сенсорная панель или тачпад), а также аккумуляторные батареи.",
+            "Стас"
+        )
+        items.add(item)
+        item = Item(
+            uuid.toString(),
+            "Принтер",
+            "print",
+            "периферийное устройство компьютера, предназначенное для вывода текстовой или графической информации, хранящейся в компьютере, на твёрдый физический носитель, обычно бумагу или полимерную плёнку, малыми тиражами (от единиц до сотен).",
+            "Кирилл"
+        )
+        items.add(item)
 
         for (item in items) {
             db.addItem(item)
@@ -50,6 +76,7 @@ class ItemsActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     private fun filterItemsByName(items: List<Item>, name: String): List<Item> {
         return items.filter { it.getTitle().contains(name, true) }
     }
