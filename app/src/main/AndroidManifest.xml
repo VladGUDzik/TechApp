@@ -13,16 +13,16 @@
         android:theme="@style/Theme.AppForAccountingEquipment"
         tools:targetApi="31">
         <activity
-            android:name=".EditItemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ItemsActivity"
+            android:name=".AddItemActivity"
             android:exported="false" />
         <activity
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".AddItemActivity"
+            android:name=".EditItemActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ItemsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
