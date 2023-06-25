@@ -5,7 +5,7 @@ import android.os.Parcelable
 import android.text.TextUtils
 
 class Item(
-    val id: String,
+    private val id: String,
     private val title: String,
     private val image: String,
     private val desc: String,

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.appforaccountingequipment'
+    namespace 'com.example.techapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.appforaccountingequipment"
+        applicationId "com.example.techapp"
         minSdk 24
         targetSdk 33
         versionCode 1

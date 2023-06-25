@@ -1,4 +1,5 @@
-package com.example.appforaccountingequipment
+package com.example.techapp
+
 
 import android.content.Intent
 import android.os.Bundle

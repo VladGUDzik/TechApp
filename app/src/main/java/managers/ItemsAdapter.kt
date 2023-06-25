@@ -9,8 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.appforaccountingequipment.EditItemActivity
-import com.example.appforaccountingequipment.R
+import com.example.techapp.EditItemActivity
+import com.example.techapp.R
 import entities.Item
 
 class ItemsAdapter(var items: List<Item>, var context: Context) :

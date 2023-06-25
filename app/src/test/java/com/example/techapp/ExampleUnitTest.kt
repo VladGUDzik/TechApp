@@ -1,4 +1,4 @@
-package com.example.appforaccountingequipment
+package com.example.techapp
 
 import org.junit.Test
 

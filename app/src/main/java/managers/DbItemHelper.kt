@@ -37,7 +37,7 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
         val db = this.writableDatabase
         db.delete(
             "items", "title='$title' AND description='$description' AND owner='$owner'",
-           null
+            null
         )
         db.close()
     }

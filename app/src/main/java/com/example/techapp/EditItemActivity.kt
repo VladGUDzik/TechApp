@@ -1,4 +1,4 @@
-package com.example.appforaccountingequipment
+package com.example.techapp
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ class EditItemActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_item)
+        setContentView(R.layout.activity_edit_item)
 
         val title: EditText = findViewById(R.id.item_in_title_one)
         val desc: EditText = findViewById(R.id.item_in_desc)
