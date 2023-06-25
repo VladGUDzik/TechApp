@@ -69,6 +69,12 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
         return result.moveToFirst()
     }
 
+    fun deleteAllItems() {
+        val db = this.writableDatabase
+        db.delete("items", null, null)
+        db.close()
+    }
+
     @SuppressLint("Range")
     fun getAllItems(): ArrayList<Item> {
         val itemList = ArrayList<Item>()

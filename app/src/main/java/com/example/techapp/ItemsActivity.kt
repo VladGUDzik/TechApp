@@ -24,6 +24,8 @@ class ItemsActivity : AppCompatActivity() {
         val searchView: EditText = findViewById(R.id.textSearch)
         val db = DbItemHelper(this, null)
 
+        db.deleteAllItems()
+
         val items = db.getAllItems()
         val uuid = UUID.randomUUID()
         var item = Item(

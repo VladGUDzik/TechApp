@@ -87,7 +87,7 @@
         android:id="@+id/enter_button_reg"
         android:layout_width="194dp"
         android:layout_height="50dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="42dp"
         android:text="Зарегистрироваться"
         android:backgroundTint="#D76860"
         app:layout_constraintEnd_toEndOf="parent"
