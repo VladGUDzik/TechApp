@@ -30,8 +30,6 @@ class EditItemActivity : AppCompatActivity() {
         owner.isEnabled = false
         buttonSave.isEnabled = false
 
-
-
         buttonDelete.setOnClickListener {
             db.deleteItem(title.hint.toString(), desc.hint.toString(), owner.hint.toString())
             startActivity(intent)
@@ -46,9 +44,15 @@ class EditItemActivity : AppCompatActivity() {
         }
 
         buttonSave.setOnClickListener {
-            val enterTitle = title.text.toString().trim()
-            val enterDesc = desc.text.toString().trim()
-            val enterOwner = owner.text.toString().trim()
+            var enterTitle = title.text.toString().trim()
+            var enterDesc = desc.text.toString().trim()
+            var enterOwner = owner.text.toString().trim()
+            if(enterTitle.isEmpty())
+                enterTitle = intent.getStringExtra("itemTitle").toString()
+            if(enterDesc.isEmpty())
+                enterDesc = intent.getStringExtra("itemDescription").toString()
+            if(enterOwner.isEmpty())
+                enterOwner = intent.getStringExtra("itemOwner").toString()
 
             db.editItem(
                 intent.getStringExtra("itemTitle").toString(), enterTitle,

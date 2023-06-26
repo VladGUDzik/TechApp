@@ -6,6 +6,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import entities.Item
+import java.util.UUID
 
 class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "app_item", factory, 1) {
@@ -22,6 +23,7 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
 
     fun addItem(item: Item) {
         val values = ContentValues()
+        values.put("id", UUID.randomUUID().toString())
         values.put("title", item.getTitle())
         values.put("image", item.getImage())
         values.put("description", item.getDesc())
@@ -45,7 +47,7 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
     fun editItem(originalTitle: String, title: String, description: String, owner: String) {
         val db = this.writableDatabase
         val values = ContentValues()
-
+        values.put("id", UUID.randomUUID().toString())
         values.put("title", title)
         values.put("description", description)
         values.put("owner", owner)
@@ -53,8 +55,8 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
         db.update(
             "items",
             values,
-            "title='$title' AND description='$description' AND owner='$owner'",
-            arrayOf(originalTitle)
+            "title='$originalTitle' OR description='$description' OR owner='$owner'",
+            arrayOf(title, description, owner)
         )
         db.close()
     }
@@ -85,12 +87,13 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
 
         if (cursor.moveToFirst()) {
             do {
-                val id = cursor.getString(cursor.getColumnIndex("id"))
+                var id = cursor.getString(cursor.getColumnIndex("id"))
                 val title = cursor.getString(cursor.getColumnIndex("title"))
                 val image = cursor.getString(cursor.getColumnIndex("image"))
                 val description = cursor.getString(cursor.getColumnIndex("description"))
                 val owner = cursor.getString(cursor.getColumnIndex("owner"))
-
+                if (id == null)
+                    id = UUID.randomUUID().toString()
                 val item = Item(id, title, image, description, owner)
                 itemList.add(item)
             } while (cursor.moveToNext())
