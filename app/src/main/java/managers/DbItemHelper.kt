@@ -47,7 +47,8 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
     fun editItem(originalTitle: String, title: String, description: String, owner: String) {
         val db = this.writableDatabase
         val values = ContentValues()
-        values.put("id", UUID.randomUUID().toString())
+        val id = UUID.randomUUID().toString()
+        values.put("id", id)
         values.put("title", title)
         values.put("description", description)
         values.put("owner", owner)
@@ -55,8 +56,8 @@ class DbItemHelper(context: Context?, factory: SQLiteDatabase.CursorFactory?) :
         db.update(
             "items",
             values,
-            "title='$originalTitle' OR description='$description' OR owner='$owner'",
-            arrayOf(title, description, owner)
+            "id=? AND title='$originalTitle' OR description=? OR owner=?",
+            arrayOf(id,title, description, owner)
         )
         db.close()
     }
